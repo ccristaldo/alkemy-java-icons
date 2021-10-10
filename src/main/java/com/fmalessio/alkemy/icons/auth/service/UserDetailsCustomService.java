@@ -1,7 +1,9 @@
 package com.fmalessio.alkemy.icons.auth.service;
 
+import com.fmalessio.alkemy.icons.auth.dto.UserDTO;
 import com.fmalessio.alkemy.icons.auth.entity.UserEntity;
 import com.fmalessio.alkemy.icons.auth.repository.UserRepository;
+import com.fmalessio.alkemy.icons.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +18,8 @@ public class UserDetailsCustomService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private EmailService emailService;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
@@ -24,6 +28,17 @@ public class UserDetailsCustomService implements UserDetailsService {
             throw new UsernameNotFoundException("Username or password not fount");
         }
         return new User(userEntity.getUsername(), userEntity.getPassword(), Collections.emptyList());
+    }
+
+    public boolean save(UserDTO userDTO) {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setUsername(userDTO.getUsername());
+        userEntity.setPassword(userDTO.getPassword());
+        userEntity = this.userRepository.save(userEntity);
+        if(userEntity != null) {
+            emailService.sendWelcomeEmailTo(userEntity.getUsername());
+        }
+        return userEntity != null;
     }
 
 }
