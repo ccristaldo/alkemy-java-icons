@@ -2,7 +2,7 @@ package com.fmalessio.alkemy.icons.mapper;
 
 import com.fmalessio.alkemy.icons.builder.ContinenteEntityBuilder;
 import com.fmalessio.alkemy.icons.dto.ContinenteDTO;
-import com.fmalessio.alkemy.icons.entity.ContienenteEntity;
+import com.fmalessio.alkemy.icons.entity.ContinenteEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -11,13 +11,13 @@ import java.util.List;
 @Component
 public class ContinenteMapper {
 
-    public ContienenteEntity continenteDTO2Entity(ContinenteDTO dto) {
+    public ContinenteEntity continenteDTO2Entity(ContinenteDTO dto) {
         //ContienenteEntity entity = new ContienenteEntity();
         //entity.setImagen(dto.getImagen());
         //entity.setDenominacion(dto.getDenominacion());
         //return entity;
 
-        ContienenteEntity entity = new ContinenteEntityBuilder()
+        ContinenteEntity entity = new ContinenteEntityBuilder()
                 .imagen(dto.getImagen())
                 .denominacion(dto.getDenominacion())
                 .build();
@@ -25,7 +25,7 @@ public class ContinenteMapper {
         return entity;
     }
 
-    public ContinenteDTO continenteEntity2DTO(ContienenteEntity entity) {
+    public ContinenteDTO continenteEntity2DTO(ContinenteEntity entity) {
         ContinenteDTO dto = new ContinenteDTO();
         dto.setId(entity.getId());
         dto.setImagen(entity.getImagen());
@@ -33,9 +33,9 @@ public class ContinenteMapper {
         return dto;
     }
 
-    public List<ContinenteDTO> continenteEntityList2DTOList(List<ContienenteEntity> entities) {
+    public List<ContinenteDTO> continenteEntityList2DTOList(List<ContinenteEntity> entities) {
         List<ContinenteDTO> dtos = new ArrayList<>();
-        for (ContienenteEntity entity : entities) {
+        for (ContinenteEntity entity : entities) {
             dtos.add(this.continenteEntity2DTO(entity));
         }
         return dtos;

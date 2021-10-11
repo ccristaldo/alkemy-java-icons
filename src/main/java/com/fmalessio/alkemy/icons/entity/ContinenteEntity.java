@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "`continente`")
 @Getter
 @Setter
-public class ContienenteEntity {
+public class ContinenteEntity {
 
     @Id
     @Column

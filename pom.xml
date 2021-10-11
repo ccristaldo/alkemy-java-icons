@@ -102,11 +102,14 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!-- Test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<version>2.5.5</version>
 		</dependency>
+		<!-- /Test -->
 	</dependencies>
 
 	<build>

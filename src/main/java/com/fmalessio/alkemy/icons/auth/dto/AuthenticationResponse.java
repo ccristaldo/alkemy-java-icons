@@ -1,12 +1,14 @@
 package com.fmalessio.alkemy.icons.auth.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+import java.io.Serializable;
+
+@Data
 @AllArgsConstructor
-public class AuthenticationResponse {
+@NoArgsConstructor
+public class AuthenticationResponse implements Serializable {
     private String jwt;
 }

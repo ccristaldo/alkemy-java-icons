@@ -29,7 +29,7 @@ public class PaisEntity {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "continente_id", insertable = false, updatable = false)
-    private ContienenteEntity continente;
+    private ContinenteEntity continente;
 
     @Column(name = "continente_id", nullable = false)
     private Long continenteId;

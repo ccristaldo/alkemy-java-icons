@@ -1,27 +1,27 @@
 package com.fmalessio.alkemy.icons.builder;
 
-import com.fmalessio.alkemy.icons.entity.ContienenteEntity;
+import com.fmalessio.alkemy.icons.entity.ContinenteEntity;
 
 public class ContinenteEntityBuilder {
 
-    private ContienenteEntity contienenteEntity;
+    private ContinenteEntity continenteEntity;
 
     public ContinenteEntityBuilder() {
-        this.contienenteEntity = new ContienenteEntity();
+        this.continenteEntity = new ContinenteEntity();
     }
 
     public ContinenteEntityBuilder imagen(String imagen) {
-        this.contienenteEntity.setImagen(imagen);
+        this.continenteEntity.setImagen(imagen);
         return this;
     }
 
     public ContinenteEntityBuilder denominacion(String dominacion) {
-        this.contienenteEntity.setDenominacion(dominacion);
+        this.continenteEntity.setDenominacion(dominacion);
         return this;
     }
 
-    public ContienenteEntity build() {
-        return contienenteEntity;
+    public ContinenteEntity build() {
+        return continenteEntity;
     }
 
 

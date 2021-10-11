@@ -12,24 +12,24 @@ import java.util.List;
 @RestController
 @RequestMapping("continente")
 @CrossOrigin("*")
-public class ContienteController {
+public class ContinenteController {
 
-    private ContinenteService contienteService;
+    private ContinenteService continenteService;
 
     @Autowired
-    public ContienteController(ContinenteService contienteService) {
-        this.contienteService = contienteService;
+    public ContinenteController(ContinenteService continenteService) {
+        this.continenteService = continenteService;
     }
 
     @GetMapping
     public ResponseEntity<List<ContinenteDTO>> getAll() {
-        List<ContinenteDTO> continentes = this.contienteService.getAllContinentes();
+        List<ContinenteDTO> continentes = this.continenteService.getAllContinentes();
         return ResponseEntity.ok().body(continentes);
     }
 
     @PostMapping
     public ResponseEntity<ContinenteDTO> save(@RequestBody ContinenteDTO continente) {
-        ContinenteDTO result = this.contienteService.save(continente);
+        ContinenteDTO result = this.continenteService.save(continente);
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
