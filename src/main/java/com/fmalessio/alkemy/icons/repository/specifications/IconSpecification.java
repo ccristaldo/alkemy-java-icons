@@ -3,6 +3,7 @@ package com.fmalessio.alkemy.icons.repository.specifications;
 import com.fmalessio.alkemy.icons.dto.IconFiltersDTO;
 import com.fmalessio.alkemy.icons.entity.IconEntity;
 import com.fmalessio.alkemy.icons.entity.PaisEntity;
+import com.fmalessio.alkemy.icons.utils.CustomDateUtils;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -13,7 +14,6 @@ import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,10 +35,7 @@ public class IconSpecification {
             }
 
             if (StringUtils.hasLength(filtersDTO.getDate())) {
-                // TODO: Reuse this in a function
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                LocalDate date = LocalDate.parse(filtersDTO.getDate(), formatter);
-
+                LocalDate date = CustomDateUtils.string2LocalDate(filtersDTO.getDate());
                 predicates.add(
                         criteriaBuilder.equal(root.<LocalDate>get("fechaCreacion"), date)
                 );

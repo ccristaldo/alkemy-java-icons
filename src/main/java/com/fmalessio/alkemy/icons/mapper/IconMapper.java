@@ -3,11 +3,10 @@ package com.fmalessio.alkemy.icons.mapper;
 import com.fmalessio.alkemy.icons.dto.IconDTO;
 import com.fmalessio.alkemy.icons.dto.PaisDTO;
 import com.fmalessio.alkemy.icons.entity.IconEntity;
+import com.fmalessio.alkemy.icons.utils.CustomDateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Component
@@ -21,7 +20,7 @@ public class IconMapper {
         entity.setImagen(dto.getImagen());
         entity.setDenominacion(dto.getDenominacion());
         entity.setFechaCreacion(
-                this.string2LocalDate(dto.getFechaCreacion())
+                CustomDateUtils.string2LocalDate(dto.getFechaCreacion())
         );
         entity.setAltura(dto.getAltura());
         entity.setHistoria(dto.getHistoria());
@@ -43,17 +42,11 @@ public class IconMapper {
         return dto;
     }
 
-    private LocalDate string2LocalDate(String stringDate) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate date = LocalDate.parse(stringDate, formatter);
-        return date;
-    }
-
     public void iconEntityRefreshValues(IconEntity entity, IconDTO iconDTO) {
         entity.setImagen(iconDTO.getImagen());
         entity.setDenominacion(iconDTO.getDenominacion());
         entity.setFechaCreacion(
-                this.string2LocalDate(iconDTO.getFechaCreacion())
+                CustomDateUtils.string2LocalDate(iconDTO.getFechaCreacion())
         );
         entity.setAltura(iconDTO.getAltura());
         entity.setHistoria(iconDTO.getHistoria());
