@@ -1,5 +1,6 @@
 package com.fmalessio.alkemy.icons.controller;
 
+import com.fmalessio.alkemy.icons.dto.IconBasicDTO;
 import com.fmalessio.alkemy.icons.dto.IconDTO;
 import com.fmalessio.alkemy.icons.service.IconService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,12 @@ public class IconController {
     @Autowired
     public IconController(IconService iconService) {
         this.iconService = iconService;
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<IconBasicDTO>> getAll() {
+        List<IconBasicDTO> icons = this.iconService.getAll();
+        return ResponseEntity.ok(icons);
     }
 
     @GetMapping("/{id}")

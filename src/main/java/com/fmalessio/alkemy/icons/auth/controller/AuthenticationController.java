@@ -3,7 +3,6 @@ package com.fmalessio.alkemy.icons.auth.controller;
 import com.fmalessio.alkemy.icons.auth.dto.AuthenticationRequest;
 import com.fmalessio.alkemy.icons.auth.dto.AuthenticationResponse;
 import com.fmalessio.alkemy.icons.auth.service.JwtUtils;
-import com.fmalessio.alkemy.icons.auth.service.UserDetailsCustomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

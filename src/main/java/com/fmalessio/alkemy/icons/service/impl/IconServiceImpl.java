@@ -1,5 +1,6 @@
 package com.fmalessio.alkemy.icons.service.impl;
 
+import com.fmalessio.alkemy.icons.dto.IconBasicDTO;
 import com.fmalessio.alkemy.icons.dto.IconDTO;
 import com.fmalessio.alkemy.icons.dto.IconFiltersDTO;
 import com.fmalessio.alkemy.icons.entity.IconEntity;
@@ -49,6 +50,12 @@ public class IconServiceImpl implements IconService {
         return iconDTO;
     }
 
+    public List<IconBasicDTO> getAll() {
+        List<IconEntity> entities = this.iconRepository.findAll();
+        List<IconBasicDTO> iconBasicDTOS = this.iconMapper.iconEntitySet2BasicDTOList(entities);
+        return iconBasicDTOS;
+    }
+
     public List<IconDTO> getByFilters(String name, String date, Set<Long> cities, String order) {
         IconFiltersDTO filtersDTO = new IconFiltersDTO(name, date, cities, order);
         List<IconEntity> entities = this.iconRepository.findAll(this.iconSpecification.getByFilters(filtersDTO));
@@ -64,9 +71,12 @@ public class IconServiceImpl implements IconService {
     }
 
     public IconDTO update(Long id, IconDTO iconDTO) {
-        IconEntity entity = this.iconRepository.getById(id);
-        this.iconMapper.iconEntityRefreshValues(entity, iconDTO);
-        IconEntity entitySaved = this.iconRepository.save(entity);
+        Optional<IconEntity> entity = this.iconRepository.findById(id);
+        if (!entity.isPresent()) {
+            throw new ParamNotFound("Id icono no valido");
+        }
+        this.iconMapper.iconEntityRefreshValues(entity.get(), iconDTO);
+        IconEntity entitySaved = this.iconRepository.save(entity.get());
         IconDTO result = this.iconMapper.iconEntity2DTO(entitySaved, false);
         return result;
     }

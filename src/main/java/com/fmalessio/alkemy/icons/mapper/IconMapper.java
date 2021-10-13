@@ -1,5 +1,6 @@
 package com.fmalessio.alkemy.icons.mapper;
 
+import com.fmalessio.alkemy.icons.dto.IconBasicDTO;
 import com.fmalessio.alkemy.icons.dto.IconDTO;
 import com.fmalessio.alkemy.icons.dto.PaisDTO;
 import com.fmalessio.alkemy.icons.entity.IconEntity;
@@ -78,5 +79,19 @@ public class IconMapper {
         }
         return dtos;
     }
+
+    public List<IconBasicDTO> iconEntitySet2BasicDTOList(Collection<IconEntity> entities) {
+        List<IconBasicDTO> dtos = new ArrayList<>();
+        IconBasicDTO basicDTO;
+        for (IconEntity entity : entities) {
+            basicDTO = new IconBasicDTO();
+            basicDTO.setId(entity.getId());
+            basicDTO.setImagen(entity.getImagen());
+            basicDTO.setDenominacion(entity.getDenominacion());
+            dtos.add(basicDTO);
+        }
+        return dtos;
+    }
+
 
 }
