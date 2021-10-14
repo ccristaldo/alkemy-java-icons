@@ -1,0 +1,409 @@
+{
+	"info": {
+		"_postman_id": "b6dc9748-91e7-4ab0-bbd1-9c5d423fb980",
+		"name": "PRE-Alternative-1.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "singin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"username\":\"usr\",\r\n   \"password\":\"pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/auth/singin",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"singin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "singup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"username\":\"alessiofederico@hotmail.com\",\r\n   \"password\":\"password1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/auth/singup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"singup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "continente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"imagen\": \"/usr/tmp/img2.jpg\",\r\n    \"denominacion\": \"Continente99\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/continente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"continente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "contienente",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3IiLCJleHAiOjE2MzM3NDIxMzgsImlhdCI6MTYzMzcwNjEzOH0.qTxzvzLcyg_0rzlVCTlP-crqHThaaBBoHMu5l5lOGbY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/continente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"continente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pais",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"imagen\":\"/usr/tmp/pais2.jpg\",\r\n   \"denominacion\":\"Argentina99\",\r\n   \"cantidadHabitantes\":1000,\r\n   \"superficie\":900001,\r\n   \"continenteId\":16,\r\n   \"icons\":[\r\n      {\r\n         \"imagen\":\"/usr/tmp/CCC.jpg\",\r\n         \"denominacion\":\"Obelisco44\",\r\n         \"fechaCreacion\":\"2021-09-28\",\r\n         \"altura\":402,\r\n         \"historia\":\"Monumento mas importante de la cuidad de buenos aires\"\r\n      }\r\n   ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/pais",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pais"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pais",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/pais",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pais"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"imagen\": \"/usr/tmp/CCC.jpg\",\r\n    \"denominacion\": \"Obelisco44\",\r\n    \"fechaCreacion\": \"2021-09-28\",\r\n    \"altura\": 401,\r\n    \"historia\": \"Monumento mas importante de la cuidad de buenos aires\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/icon",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icon/id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3IiLCJleHAiOjE2MzQxMTY5MjYsImlhdCI6MTYzNDA4MDkyNn0.NpbxCbjKUVNU2uK29cvrtQ1smfQtquu6wIZTiHvW3uE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/icon/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icon",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icon/all",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3IiLCJleHAiOjE2MzQxMTY5MjYsImlhdCI6MTYzNDA4MDkyNn0.NpbxCbjKUVNU2uK29cvrtQ1smfQtquu6wIZTiHvW3uE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/icon/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icon",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icon?filters",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3IiLCJleHAiOjE2MzQxMTY5MjYsImlhdCI6MTYzNDA4MDkyNn0.NpbxCbjKUVNU2uK29cvrtQ1smfQtquu6wIZTiHvW3uE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/icon",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icon"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2021-09-28",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Obelisco",
+							"disabled": true
+						},
+						{
+							"key": "cities",
+							"value": "2,4",
+							"disabled": true
+						},
+						{
+							"key": "order",
+							"value": "DESC",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icon",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/icon/13",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icon",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icon/id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3IiLCJleHAiOjE2MzQxMTY5MjYsImlhdCI6MTYzNDA4MDkyNn0.NpbxCbjKUVNU2uK29cvrtQ1smfQtquu6wIZTiHvW3uE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"imagen\": \"/usr/tmp/pais2.jpg\",\r\n    \"denominacion\": \"Monumental222\",\r\n    \"fechaCreacion\": \"2021-09-28\",\r\n    \"altura\": 500,\r\n    \"historia\": \"Monumento mas importante de la cuidad de buenos aires\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/icon/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icon",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icon/id/pais/id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/icon/3/pais/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icon",
+						"3",
+						"pais",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icon/id/pais/id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/icon/3/pais/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icon",
+						"3",
+						"pais",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
