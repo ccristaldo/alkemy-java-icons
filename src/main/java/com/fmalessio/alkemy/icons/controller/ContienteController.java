@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("continente")
-@CrossOrigin("*")
+@RequestMapping("continentes")
 public class ContienteController {
 
     private ContinenteService contienteService;

@@ -50,7 +50,7 @@ public class IconSpecification {
                 predicates.add(citiesId.in(filtersDTO.getCities()));
             }
 
-            // Remove duplucates
+            // Remove duplicates
             query.distinct(true);
 
             // Order resolver

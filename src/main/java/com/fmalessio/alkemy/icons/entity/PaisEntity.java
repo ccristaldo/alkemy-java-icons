@@ -8,13 +8,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "`pais`")
+@Table(name = "pais")
 @Getter
 @Setter
 public class PaisEntity {
 
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 

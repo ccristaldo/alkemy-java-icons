@@ -12,8 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("icon")
-@CrossOrigin("*")
+@RequestMapping("icons")
 public class IconController {
 
     private IconService iconService;
@@ -23,7 +22,7 @@ public class IconController {
         this.iconService = iconService;
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<IconBasicDTO>> getAll() {
         List<IconBasicDTO> icons = this.iconService.getAll();
         return ResponseEntity.ok(icons);
@@ -35,7 +34,7 @@ public class IconController {
         return ResponseEntity.ok(icon);
     }
 
-    @GetMapping
+    @GetMapping("/filter")
     public ResponseEntity<List<IconDTO>> getDetailsByFilters(
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String date,

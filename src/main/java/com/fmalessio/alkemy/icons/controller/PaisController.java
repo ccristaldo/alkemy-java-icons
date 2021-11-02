@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("pais")
-@CrossOrigin("*")
+@RequestMapping("paises")
 public class PaisController {
 
     private PaisService paisService;

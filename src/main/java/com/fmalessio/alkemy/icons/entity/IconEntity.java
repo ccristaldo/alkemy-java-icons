@@ -6,13 +6,20 @@ import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "`icon`")
+@Table(name = "icon")
 @Getter
 @Setter
 @SQLDelete(sql = "UPDATE icon SET deleted = true WHERE id=?")
@@ -27,7 +34,7 @@ public class IconEntity {
 
     private String denominacion;
 
-    @Column(name = "fecha_creacion")
+    @Column(name = "fecha_creacion", nullable = false)
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     private LocalDate fechaCreacion;
 
